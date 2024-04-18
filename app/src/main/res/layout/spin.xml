@@ -11,36 +11,28 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        app:boxBackgroundMode="outline"
-        app:hintEnabled="false"
-        app:endIconMode="none"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <FrameLayout
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/groundSpeedEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/groundSpeedEditText"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:hint="Ground Speed"/>
-
-            <AutoCompleteTextView
-                android:id="@+id/groundSpeedAutoCompleteTextView"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:inputType="none"
-                android:background="@null"
-                android:layout_gravity="end|center_vertical"
-                android:gravity="end"
-                android:editable="false"/>
-
-        </FrameLayout>
-
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:text="Ground Speed, 2877 km/h"
+            android:editable="false" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <AutoCompleteTextView
+        android:id="@+id/unitsAutoCompleteTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:inputType="none"
+        android:text="Knots"
+        app:layout_constraintTop_toBottomOf="@id/groundSpeedInputLayout"
+        app:layout_constraintStart_toStartOf="@id/groundSpeedInputLayout"
+        app:layout_constraintEnd_toEndOf="@id/groundSpeedInputLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
