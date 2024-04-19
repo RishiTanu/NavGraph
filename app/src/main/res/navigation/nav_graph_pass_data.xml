@@ -15,6 +15,7 @@
     <action
         android:id="@+id/action_mainFragment_to_topFragment"
         app:destination="@id/topFragment" />
+
     <!-- Action Bottom -->
     <action
         android:id="@+id/action_mainFragment_to_bottomFragment"

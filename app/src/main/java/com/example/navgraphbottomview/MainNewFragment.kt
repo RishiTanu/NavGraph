@@ -28,9 +28,16 @@ class MainNewFragment : Fragment() {
         val buttonTop = view.findViewById<Button>(R.id.btn_destA)
         buttonTop?.setOnClickListener {
 
-            val bundle = bundleOf("myArg" to 6)
+            // Proper usage of named arguments in Kotlin
+            val action = MainNewFragmentDirections.actionMainFragmentToTopFragment(myArg = 123)
+            findNavController().navigate(action)
+
+          /*  val action = MainNewFragmentDirections.actionMainFragmentToTopFragment(myArg = 123)
+            findNavController().navigate(action)*/
+
+            //val bundle = bundleOf("myArg" to 6)
             // 🔥 Alternative 2
-            findNavController().navigate(R.id.action_mainFragment_to_topFragment, bundle)
+           // findNavController().navigate(R.id.action_mainFragment_to_topFragment, bundle)
         }
 
 

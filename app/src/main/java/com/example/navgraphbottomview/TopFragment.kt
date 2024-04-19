@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.fragment.navArgs
 
 
 class TopFragment : Fragment() {
@@ -23,8 +24,15 @@ class TopFragment : Fragment() {
 
         val tvTop = view.findViewById<TextView>(R.id.tvTop)
 
-        val myArg = arguments?.getInt("myArg")
+        // Retrieve the argument
+       /* val args: TopFragmentArgs by navArgs()
+        val myArgValue = args.myArg*/
 
-        tvTop.text = "From Bundle myArg $myArg"
+        val args = TopFragmentArgs.fromBundle(requireArguments())
+        val myArgValue = args.myArg
+
+       // val myArg = arguments?.getInt("myArg")
+
+        tvTop.text = "From Bundle myArg $myArgValue"
     }
 }
