@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_pass_data"
+    app:startDestination="@id/mainNewFragment">
+
+    <fragment
+        android:id="@+id/mainNewFragment"
+        android:name="com.example.navgraphbottomview.MainNewFragment"
+        android:label="fragment_main_new"
+        tools:layout="@layout/fragment_main_new">
+
+    <!-- Action Top -->
+    <action
+        android:id="@+id/action_mainFragment_to_topFragment"
+        app:destination="@id/topFragment" />
+    <!-- Action Bottom -->
+    <action
+        android:id="@+id/action_mainFragment_to_bottomFragment"
+        app:destination="@id/bottomFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/topFragment"
+        android:name="com.example.navgraphbottomview.TopFragment"
+        android:label="fragment_top"
+        tools:layout="@layout/fragment_top" >
+
+        <argument
+            android:name="myArg"
+            android:defaultValue="0"
+            app:argType="integer" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/bottomFragment"
+        android:name="com.example.navgraphbottomview.BottomFragment"
+        android:label="fragment_bottom"
+        tools:layout="@layout/fragment_bottom">
+
+        <argument
+            android:name="myData"
+            app:argType="com.example.navgraphbottomview.model.Data" />
+    </fragment>
+</navigation>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/shoppingFragment">
+
+   <!-- <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.navgraphbottomview.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />-->
+
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:name="com.example.navgraphbottomview.bottombar.CameraFragment"
+        android:label="fragment_camera"
+        tools:layout="@layout/fragment_camera" />
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.navgraphbottomview.bottombar.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.navgraphbottomview.bottombar.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/shoppingFragment"
+        android:name="com.example.navgraphbottomview.bottombar.ShoppingFragment"
+        android:label="fragment_shopping"
+        tools:layout="@layout/fragment_shopping" />
+
+</navigation>

@@ -1,22 +1,19 @@
 package com.example.navgraphbottomview
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.view.ContextThemeWrapper
-import android.view.Gravity
-import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.PopupMenu
-import android.widget.PopupWindow
-import com.google.android.material.textfield.TextInputLayout
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.NavigationUI.onNavDestinationSelected
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var overlayLayout: View
@@ -28,6 +25,34 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        supportFragmentManager.addOnBackStackChangedListener {
+            val backStackEntryCount = supportFragmentManager.backStackEntryCount
+            val fragments = supportFragmentManager.fragments
+            val fragmentCount = fragments.size
+
+
+            Toast.makeText(
+                this,
+                "MainActivity backStackEntryCount: $backStackEntryCount, fragmentCount: $fragmentCount, fragments: $fragments",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
+        val navController = findNavController(R.id.nav_host_fragment)
+
+        val bottomNav = findViewById<BottomNavigationView>(R.id.nav_view)
+
+        // TODO Alternative 1 to set bottom navigation
+        bottomNav?.setupWithNavController(navController)
+
+        // TODO Alternative 2 to set bottom navigation
+//        NavigationUI.setupWithNavController(bottomNav, navController)
+
+        bottomNav.setOnItemReselectedListener {
+            NavigationUI.onNavDestinationSelected(it, navController)
+        }
+
         /*val editTextValue = findViewById<EditText>(R.id.editTextValue)
         val imageViewUnit = findViewById<ImageView>(R.id.imageViewUnit)
 
@@ -67,12 +92,17 @@ class MainActivity : AppCompatActivity() {
                 // Implement logic as needed
             }
         })*/
-        setupUnitDropdown()
+      //  setupUnitDropdown()
     }
-    private fun onUnitSelected(unit: String) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment)
+        return NavigationUI.onNavDestinationSelected(item, navController) || super.onOptionsItemSelected(item)
+    }
+
+    /*private fun onUnitSelected(unit: String) {
         // Update your data based on the selected unit
-    }
-    private fun setupUnitDropdown() {
+    }*/
+    /*private fun setupUnitDropdown() {
         groundSpeedAutoCompleteTextView = findViewById(R.id.groundSpeedAutoCompleteTextView)
 
         val units = arrayOf("Knots", "Mach", "Km/h")
@@ -94,7 +124,7 @@ class MainActivity : AppCompatActivity() {
                 showDropDown()
             }
         }
-    }
+    }*/
 /*    private fun showPopupMenu(view: View, editText: EditText) {
         val popupMenu = PopupMenu(this, view)
         popupMenu.menu.add("knots")
@@ -116,7 +146,7 @@ class MainActivity : AppCompatActivity() {
         popupMenu.show()
     }*/
 
-    private fun showPopupMenu(view: View, editText: EditText) {
+    /*private fun showPopupMenu(view: View, editText: EditText) {
         // Wrap the context with the custom style
         val contextWrapper = ContextThemeWrapper(this, R.style.CustomPopupMenu)
         val popupMenu = PopupMenu(contextWrapper, view)
@@ -128,7 +158,7 @@ class MainActivity : AppCompatActivity() {
             true
         }
         popupMenu.show()
-    }
+    }*/
 
     /*private fun showPopupMenu(view: View, editText: EditText) {
         // Apply the custom style to the PopupMenu
