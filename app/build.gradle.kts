@@ -51,6 +51,7 @@ dependencies {
     // Navigation components using Kotlin extensions (KTX)
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+    implementation("com.github.ibrahimsn98:SmoothBottomBar:1.7.9")
 
     // Google Material Design Components
     //implementation("com.google.android.material:material:$materialVersion")

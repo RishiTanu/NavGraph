@@ -29,8 +29,8 @@ class MainNewFragment : Fragment() {
         buttonTop?.setOnClickListener {
 
             // Proper usage of named arguments in Kotlin
-            val action = MainNewFragmentDirections.actionMainFragmentToTopFragment(myArg = 123)
-            findNavController().navigate(action)
+           /* val action = MainNewFragmentDirections.actionMainFragmentToTopFragment(myArg = 123)
+            findNavController().navigate(action)*/
 
           /*  val action = MainNewFragmentDirections.actionMainFragmentToTopFragment(myArg = 123)
             findNavController().navigate(action)*/
