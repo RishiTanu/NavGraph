@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         }*/
 
         // Setup NavController
-        /*val navController = findNavController(R.id.nav_host_fragment)
+        val navController = findNavController(R.id.nav_host_fragment)
 
         // Setup BottomNavigationView
         val bottomNav = findViewById<BottomNavigationView>(R.id.nav_view)
@@ -78,10 +78,10 @@ class MainActivity : AppCompatActivity() {
                 "MainActivity backStackEntryCount: $backStackEntryCount, fragmentCount: $fragmentCount, fragments: $fragments",
                 Toast.LENGTH_SHORT
             ).show()
-        }*/
+        }
 
 
-        val navController = findNavController(R.id.nav_host_fragment)
+       /* val navController = findNavController(R.id.nav_host_fragment)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         navView.setupWithNavController(navController)
 
@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity() {
             val view = navView.findViewById<View>(item.itemId)
             animateBackground(view, backgroundView, layout)
             true
-        }
+        }*/
     }
 
     private fun animateBackground(targetView: View, backgroundView: View, layout: ConstraintLayout) {
