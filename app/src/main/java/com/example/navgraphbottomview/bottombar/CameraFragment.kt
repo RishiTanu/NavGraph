@@ -20,23 +20,6 @@ class CameraFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_camera, container, false)
-        val drawerLinearLayout = view.findViewById<DrawerLayout>(R.id.drawer_layout)
-
-        // Create and add 10 EditText views dynamically
-        for (i in 1..10) {
-            val editText = EditText(requireActivity()).apply {
-               LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-                )
-                hint = "Enter Text $i"
-                textSize = 16f
-                setPadding(20, 20, 20, 20)
-                setBackgroundResource(android.R.color.white)
-                id = View.generateViewId()
-            }
-            drawerLinearLayout.addView(editText)
-        }
         return  view
     }
 
